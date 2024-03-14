@@ -1,66 +1,49 @@
 import unittest
-
-from kaalin.words.latin import KaalinLatin
+from kaalin import KaalinLatin
 
 class TestKaalinLatin(unittest.TestCase):
     def setUp(self):
-        self.kaalin_latin = KaalinLatin()
+        self.text_upper = "ABC"
+        self.text_lower = "abc"
+        self.text_mix = "AbC"
 
     def test_get_uppercases(self):
-        uppercases = self.kaalin_latin.get_uppercases()
-        self.assertEqual(len(uppercases), 34)
+        expected_uppercases = ['A', 'Á', 'B', 'D', 'E', 'F', 'G', 'Д', 'H', 'X', 'Í', 'I', 'J', 'K', 'Q', 'L', 'M', 'N', 'Ń',
+                               'O', 'Ó', 'P', 'R', 'S', 'T', 'U', 'Ú', 'V', 'W', 'Y', 'Z', 'Ш', 'C', 'Ch', ' ']
+        self.assertEqual(KaalinLatin.get_uppercases(), expected_uppercases)
 
     def test_get_lowercases(self):
-        lowercases = self.kaalin_latin.get_lowercases()
-        self.assertEqual(len(lowercases), 34)
+        expected_lowercases = ['a', 'á', 'b', 'd', 'e', 'f', 'g', 'Ǵ', 'h', 'x', 'ı', 'i', 'j', 'k', 'q', 'l', 'm', 'n', 'ń',
+                               'o', 'ó', 'p', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'y', 'z', 'sh', 'c', 'ch', ' ']
+        self.assertEqual(KaalinLatin.get_lowercases(), expected_lowercases)
 
-    def test_is_upper(self):
-        self.assertTrue(self.kaalin_latin.is_upper('A'))
-        self.assertTrue(self.kaalin_latin.is_upper('B'))
-        self.assertTrue(self.kaalin_latin.is_upper('Á'))
-        self.assertTrue(self.kaalin_latin.is_upper('Ǵ'))
-        self.assertTrue(self.kaalin_latin.is_upper('Ú'))
-        self.assertFalse(self.kaalin_latin.is_upper('a'))
-        self.assertFalse(self.kaalin_latin.is_upper('b'))
-        self.assertFalse(self.kaalin_latin.is_upper('c'))
-        self.assertFalse(self.kaalin_latin.is_upper('f'))
-        self.assertFalse(self.kaalin_latin.is_upper('g'))
+    def test_isupper(self):
+        kl = KaalinLatin(self.text_upper)
+        self.assertTrue(kl.isupper())
 
-    def test_is_lower(self):
-        self.assertTrue(self.kaalin_latin.is_lower('a'))
-        self.assertTrue(self.kaalin_latin.is_lower('b'))
-        self.assertTrue(self.kaalin_latin.is_lower('f'))
-        self.assertTrue(self.kaalin_latin.is_lower('l'))
-        self.assertFalse(self.kaalin_latin.is_lower('A'))
-        self.assertFalse(self.kaalin_latin.is_lower('Ǵ'))
-        self.assertFalse(self.kaalin_latin.is_lower('J'))
+    def test_islower(self):
+        kl = KaalinLatin(self.text_lower)
+        self.assertTrue(kl.islower())
 
-    def test_is_digit(self):
-        self.assertTrue(self.kaalin_latin.is_digit('5'))
-        self.assertTrue(self.kaalin_latin.is_digit('12'))
-        self.assertTrue(self.kaalin_latin.is_digit('312'))
-        self.assertTrue(self.kaalin_latin.is_digit('9212'))
-        self.assertFalse(self.kaalin_latin.is_digit('a'))
-        self.assertFalse(self.kaalin_latin.is_digit('b'))
-        self.assertFalse(self.kaalin_latin.is_digit('d'))
-        self.assertFalse(self.kaalin_latin.is_digit('l'))
+    def test_isdigit(self):
+        kl = KaalinLatin("123")
+        self.assertTrue(kl.isdigit())
 
-    def test_is_alpha(self):
-        self.assertTrue(self.kaalin_latin.is_alpha('A'))
-        self.assertTrue(self.kaalin_latin.is_alpha('a'))
-        self.assertFalse(self.kaalin_latin.is_alpha('5'))
+    def test_isalpha(self):
+        kl = KaalinLatin("abc")
+        self.assertTrue(kl.isalpha())
 
     def test_swapcase(self):
-        result = self.kaalin_latin.swapcase('Hello World')
-        self.assertEqual(result, 'hELLO wORLD')
+        kl = KaalinLatin(self.text_mix)
+        self.assertEqual(kl.swapcase(), "aBc")
 
-    def test_to_upper(self):
-        result = self.kaalin_latin.to_upper('hello world')
-        self.assertEqual(result, 'HELLO WORLD')
+    def test_upper(self):
+        kl = KaalinLatin(self.text_lower)
+        self.assertEqual(kl.upper(), self.text_upper)
 
-    def test_to_lower(self):
-        result = self.kaalin_latin.to_lower('HELLO WORLD')
-        self.assertEqual(result, 'hello world')
+    def test_lower(self):
+        kl = KaalinLatin(self.text_upper)
+        self.assertEqual(kl.lower(), self.text_lower)
 
 if __name__ == '__main__':
     unittest.main()
