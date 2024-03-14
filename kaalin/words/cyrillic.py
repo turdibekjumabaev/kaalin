@@ -1,11 +1,11 @@
 class KaalinCyrillic:
     __uppercases = ['А', 'Ә', 'Б', 'Д', 'Е', 'Ф', 'Г', 'Ғ', 'Ҳ', 'Х', 'Ы', 'И', 'Ж', 'К', 'Қ', 'Л', 'М', 'Н', 'Ң',
-                   'О', 'Ө', 'П', 'Р', 'С', 'Т', 'У', 'Ү', 'В', 'Ў', 'Й', 'З', 'Ш', 'Ц', 'Ч']
+                   'О', 'Ө', 'П', 'Р', 'С', 'Т', 'У', 'Ү', 'В', 'Ў', 'Й', 'З', 'Ш', 'Ц', 'Ч', ' ']
     __lowercases = ['а', 'ә', 'б', 'д', 'е', 'ф', 'г', 'ғ', 'ҳ', 'х', 'ы', 'и', 'ж', 'к', 'қ', 'л', 'м', 'н', 'ң',
-                   'о', 'ө', 'п', 'р', 'с', 'т', 'у', 'ү', 'в', 'ў', 'й', 'з', 'ш', 'ц', 'ч']
+                   'о', 'ө', 'п', 'р', 'с', 'т', 'у', 'ү', 'в', 'ў', 'й', 'з', 'ш', 'ц', 'ч', ' ']
 
-    def __init__(self):
-        pass
+    def __init__(self, text):
+        self.text = text
 
     @classmethod
     def get_uppercases(cls):
@@ -15,28 +15,25 @@ class KaalinCyrillic:
     def get_lowercases(cls):
         return cls.__lowercases
 
-    def is_upper(self, char):
-        return char in self.__uppercases
+    def isupper(self):
+        return all(char in self.__uppercases for char in self.text)
 
-    def is_lower(self, char):
-        return char in self.__lowercases
+    def islower(self):
+        return all(char in self.__lowercases for char in self.text)
 
-    def is_digit(self, char):
-        return char.isdigit()
+    def isdigit(self):
+        return self.text.isdigit()
 
-    def is_alpha(self, char):
-        return char.isalpha() or char.isnumeric()
+    def isalpha(self):
+        return self.text.isalpha() or self.text.isnumeric()
 
-    def swapcase(self, text):
-        return ''.join(c.lower() if c.isupper() else c.upper() for c in text)
+    def swapcase(self):
+        return self.text.swapcase()
 
-    def to_upper(self, text):
+    def upper(self):
         upper_mapping = dict(zip(self.__lowercases, self.__uppercases))
-        return ''.join(upper_mapping[char] if char in upper_mapping else char for char in text)
+        return ''.join(upper_mapping.get(char, char) for char in self.text)
 
-    def to_lower(self, text):
+    def lower(self):
         lower_mapping = dict(zip(self.__uppercases, self.__lowercases))
-        return ''.join(lower_mapping[char] if char in lower_mapping else char for char in text)
-
-    def to_cyrillic(self, text):
-        pass
+        return ''.join(lower_mapping.get(char, char) for char in self.text)

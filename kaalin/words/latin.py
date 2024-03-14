@@ -1,11 +1,11 @@
 class KaalinLatin:
-    __uppercases = ['A', 'Á', 'B', 'D', 'E', 'F', 'G', 'Ǵ', 'H', 'X', 'Í', 'I', 'J', 'K', 'Q', 'L', 'M', 'N', 'Ń',
-                    'O', 'Ó', 'P', 'R', 'S', 'T', 'U', 'Ú', 'V', 'W', 'Y', 'Z', 'Sh', 'C', 'Ch']
-    __lowercases = ['a', 'á', 'b', 'd', 'e', 'f', 'g', 'ǵ', 'h', 'x', 'ı', 'i', 'j', 'k', 'q', 'l', 'm', 'n', 'ń',
-                    'o', 'ó', 'p', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'y', 'z', 'sh', 'c', 'ch']
+    __uppercases = ['A', 'Á', 'B', 'D', 'E', 'F', 'G', 'Д', 'H', 'X', 'Í', 'I', 'J', 'K', 'Q', 'L', 'M', 'N', 'Ń',
+                    'O', 'Ó', 'P', 'R', 'S', 'T', 'U', 'Ú', 'V', 'W', 'Y', 'Z', 'Ш', 'C', 'Ch', ' ']
+    __lowercases = ['a', 'á', 'b', 'd', 'e', 'f', 'g', 'Ǵ', 'h', 'x', 'ı', 'i', 'j', 'k', 'q', 'l', 'm', 'n', 'ń',
+                    'o', 'ó', 'p', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'y', 'z', 'sh', 'c', 'ch', ' ']
 
-    def __init__(self):
-        pass
+    def __init__(self, text):
+        self.text = text
 
     @classmethod
     def get_uppercases(cls):
@@ -15,28 +15,25 @@ class KaalinLatin:
     def get_lowercases(cls):
         return cls.__lowercases
 
-    def is_upper(self, char):
-        return char in self.__uppercases
+    def isupper(self):
+        return all(char in self.__uppercases for char in self.text)
 
-    def is_lower(self, char):
-        return char in self.__lowercases
+    def islower(self):
+        return all(char in self.__lowercases for char in self.text)
 
-    def is_digit(self, char):
-        return char.isdigit()
+    def isdigit(self):
+        return self.text.isdigit()
 
-    def is_alpha(self, char):
-        return char.isalpha()
+    def isalpha(self):
+        return self.text.isalpha()
 
-    def swapcase(self, text):
-        return ''.join(c.lower() if c.isupper() else c.upper() for c in text)
+    def swapcase(self):
+        return self.text.swapcase()
 
-    def to_upper(self, text):
+    def upper(self):
         upper_mapping = dict(zip(self.__lowercases, self.__uppercases))
-        return ''.join(upper_mapping[char] if char in upper_mapping else char for char in text)
+        return ''.join(upper_mapping.get(char, char) for char in self.text)
 
-    def to_lower(self, text):
+    def lower(self):
         lower_mapping = dict(zip(self.__uppercases, self.__lowercases))
-        return ''.join(lower_mapping[char] if char in lower_mapping else char for char in text)
-
-    def to_latin(self, text):
-        pass
+        return ''.join(lower_mapping.get(char, char) for char in self.text)
