@@ -36,40 +36,5 @@ class KaalinNumber:
                 return f"{self.__ones[ten_thousand_digit]} mıń"
             else:
                 return f"{self.__ones[ten_thousand_digit]} mıń {self.to_word(remainder)}"
-
-    def base2to8(self, number):
-        decimal_number = int(number, 2)
-        octal_number = oct(decimal_number)[2:]
-        return octal_number
-
-    def base2to10(self, number):
-        decimal_number = int(number, 2)
-        return decimal_number
-
-    def base8to2(self, number):
-        decimal_number = int(number, 8)
-        binary_number = bin(decimal_number)[2:]
-        return binary_number
-
-    def base8to10(self, number):
-        decimal_number = int(number, 8)
-        return decimal_number
-
-    def base8to16(self, number):
-        decimal_number = int(number, 8)
-        hexadecimal_number = hex(decimal_number)[2:]
-        return hexadecimal_number
-
-    def base2to16(self, number):
-        decimal_number = int(number, 2)
-        hexadecimal_number = hex(decimal_number)[2:]
-        return hexadecimal_number
-
-    def base10to2(self, number):
-        return bin(number)[2:]
-
-    def base10to8(self, number):
-        return oct(number)[2:]
-
-    def base10to16(self, number):
-        return hex(number)[2:]
+        else:
+            return "San shegaradan asıp ketti"
