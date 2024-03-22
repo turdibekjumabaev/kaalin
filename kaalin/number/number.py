@@ -1,12 +1,12 @@
 class KaalinNumber:
-    __ones = ["", "bir", "eki", "úsh", "tórt", "bes", "altı", "jeti", "segiz", "toǵız"]
+    __ones = ["", "bir", "eki", "úsh", "tórt", "bes", "altı", "jeti", "segiz", "toǵız", "on", "on bir", "on eki", "on úsh", "on tórt", "on bes", "on altı", "on jeti", "on seginz", "on toǵız"]
     __tens = ["", "", "jigirma", "otız", "qırıq", "eliw", "alpıs", "jetpis", "seksen", "toqsan"]
 
     def __init__(self):
         pass
 
     def to_word(self, number):
-        if number < 10:
+        if number < 20:
             return self.__ones[number]
         elif number < 100:
             ten_digit = number // 10
@@ -29,8 +29,13 @@ class KaalinNumber:
                 return f"mıń"
             else:
                 return f"{self.__ones[thousand_digit]} mıń {self.to_word(remainder)}"
-        else:
-            return "Number out of range"
+        elif number < 100000:
+            ten_thousand_digit = number // 1000
+            remainder = number % 1000
+            if remainder == 0:
+                return f"{self.__ones[ten_thousand_digit]} mıń"
+            else:
+                return f"{self.__ones[ten_thousand_digit]} mıń {self.to_word(remainder)}"
 
     def base2to8(self, number):
         decimal_number = int(number, 2)
