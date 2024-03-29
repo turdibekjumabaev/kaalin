@@ -22,9 +22,8 @@ from kaalin import KaalinNumber
 
 kaa_num = KaalinNumber()
 
-print(kaa_num.to_word(11))          # on bir
-print(kaa_num.base2to8('1001001'))  # '111'
-print(kaa_num.base10to2(95))        # '1011111'
+print(kaa_num.to_word(533_525))         # bes júz otız úsh mıń bes júz jigirma bes
+print(kaa_num.to_word(894_236_671))     # segiz júz toqsan tórt million eki júz otız altı mıń altı júz jetpis bir
 ```
 <br>
 
