@@ -39,11 +39,46 @@ class KaalinNumber:
             else:
                 return f"{self.to_word(ten_thousand_digit)} mıń {self.to_word(remainder)}"
         elif number < 1_000_000_000:
-            billion_digit = number // 1_000_000
+            million_digit = number // 1_000_000
             remainder = number % 1_000_000
             if remainder == 0:
-                return  f"{self.to_word(billion_digit)} million"
+                return  f"{self.to_word(million_digit)} million"
             else:
-                return f"{self.to_word(billion_digit)} million {self.to_word(remainder)}"
+                return f"{self.to_word(million_digit)} million {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000:
+            billion_digit = number // 1_000_000_000
+            remainder = number % 1_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(billion_digit)} milliard"
+            else:
+                return f"{self.to_word(billion_digit)} milliard {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000:
+            trillion_digit = number // 1_000_000_000_000
+            remainder = number % 1_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(trillion_digit)} trillion"
+            else:
+                return f"{self.to_word(trillion_digit)} trillion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000:
+            quadrillion_digit = number // 1_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(quadrillion_digit)} kvadrillion"
+            else:
+                return f"{self.to_word(quadrillion_digit)} kvadrillion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000_000:
+            quantillion_digit = number // 1_000_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(quantillion_digit)} kvintillion"
+            else:
+                return f"{self.to_word(quantillion_digit)} kvintillion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000_000_000:
+            sextillion_digit = number // 1_000_000_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(sextillion_digit)} sekstilion"
+            else:
+                return f"{self.to_word(sextillion_digit)} sekstilion {self.to_word(remainder)}"
         else:
             return "San shegaradan asıp ketti"
