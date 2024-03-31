@@ -80,5 +80,26 @@ class KaalinNumber:
                 return f"{self.to_word(sextillion_digit)} sekstilion"
             else:
                 return f"{self.to_word(sextillion_digit)} sekstilion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000_000_000_000:
+            septillion_digit = number // 1_000_000_000_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(septillion_digit)} septillion"
+            else:
+                return f"{self.to_word(septillion_digit)} septillion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000_000_000_000_000:
+            octillion_digit = number // 1_000_000_000_000_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(octillion_digit)} oktillion"
+            else:
+                return f"{self.to_word(octillion_digit)} oktillion {self.to_word(remainder)}"
+        elif number < 1_000_000_000_000_000_000_000_000_000_000_000:
+            nonillion_digit = number // 1_000_000_000_000_000_000_000_000_000_000
+            remainder = number % 1_000_000_000_000_000_000_000_000_000_000
+            if remainder == 0:
+                return f"{self.to_word(nonillion_digit)} nonillion"
+            else:
+                return f"{self.to_word(nonillion_digit)} nonillion {self.to_word(remainder)}"
         else:
             return "San shegaradan asıp ketti"
