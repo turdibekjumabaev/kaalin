@@ -1,2 +1,2 @@
-from .latin import KaalinLatin
-from .cyrillic import KaalinCyrillic
+from .latin import Latin
+from .cyrillic import Cyrillic

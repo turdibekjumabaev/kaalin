@@ -1,4 +1,4 @@
-class KaalinLatin:
+class Latin:
     __uppercases = ['A', 'Á', 'B', 'D', 'E', 'F', 'G', 'Д', 'H', 'X', 'Í', 'I', 'J', 'K', 'Q', 'L', 'M', 'N', 'Ń',
                     'O', 'Ó', 'P', 'R', 'S', 'T', 'U', 'Ú', 'V', 'W', 'Y', 'Z', 'Ш', 'C', 'Ch', ' ']
     __lowercases = ['a', 'á', 'b', 'd', 'e', 'f', 'g', 'Ǵ', 'h', 'x', 'ı', 'i', 'j', 'k', 'q', 'l', 'm', 'n', 'ń',

@@ -1,3 +1,3 @@
-from .words import KaalinCyrillic, KaalinLatin
-from .number import KaalinNumber
+from .words import Cyrillic, Latin
+from .number import Number
 from .number import NumberRangeError

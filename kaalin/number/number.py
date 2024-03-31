@@ -1,7 +1,7 @@
 from .exceptions import NumberRangeError
 
 
-class KaalinNumber:
+class Number:
     __ones = ["", "bir", "eki", "úsh", "tórt", "bes", "altı", "jeti", "segiz", "toǵız", "on", "on bir", "on eki", "on úsh", "on tórt", "on bes", "on altı", "on jeti", "on segiz", "on toǵız"]
     __tens = ["", "", "jigirma", "otız", "qırıq", "eliw", "alpıs", "jetpis", "seksen", "toqsan"]
 
