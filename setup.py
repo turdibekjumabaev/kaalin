@@ -7,9 +7,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.0'
+VERSION = '2.0.0'
 DESCRIPTION = 'Special opportunities for the Karakalpak language'
-LONG_DESCRIPTION = 'This package includes various classes and methods tailored for the Karakalpak language. Among them are Latin-Cyrillic converters and functionalities for expressing numbers in word form.'
 
 # Setting up
 setup(
