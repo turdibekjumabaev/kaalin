@@ -1,3 +1,6 @@
+from .exceptions import NumberRangeError
+
+
 class KaalinNumber:
     __ones = ["", "bir", "eki", "úsh", "tórt", "bes", "altı", "jeti", "segiz", "toǵız", "on", "on bir", "on eki", "on úsh", "on tórt", "on bes", "on altı", "on jeti", "on segiz", "on toǵız"]
     __tens = ["", "", "jigirma", "otız", "qırıq", "eliw", "alpıs", "jetpis", "seksen", "toqsan"]
@@ -42,7 +45,7 @@ class KaalinNumber:
             million_digit = number // 1_000_000
             remainder = number % 1_000_000
             if remainder == 0:
-                return  f"{self.to_word(million_digit)} million"
+                return f"{self.to_word(million_digit)} million"
             else:
                 return f"{self.to_word(million_digit)} million {self.to_word(remainder)}"
         elif number < 1_000_000_000_000:
@@ -102,4 +105,4 @@ class KaalinNumber:
             else:
                 return f"{self.to_word(nonillion_digit)} nonillion {self.to_word(remainder)}"
         else:
-            return "San shegaradan asıp ketti"
+            raise NumberRangeError()
