@@ -6,9 +6,9 @@
 
 ## Example
 ```python
-from kaalin import KaalinLatin, KaalinCyrillic
+from kaalin import Latin
 
-kaa = KaalinLatin('BÁHÁR')
+kaa = Latin('BÁHÁR')
 
 print(kaa.upper())      # BÁHÁR
 print(kaa.lower())      # báhár
@@ -18,12 +18,15 @@ print(kaa.isalpha())    # True
 print(kaa.isdigit())    # False
 ```
 ```python
-from kaalin import KaalinNumber
+from kaalin import Number, NumberRangeError
 
-kaa_num = KaalinNumber()
+kaa_num = Number()
 
-print(kaa_num.to_word(533_525))         # bes júz otız úsh mıń bes júz jigirma bes
-print(kaa_num.to_word(894_236_671))     # segiz júz toqsan tórt million eki júz otız altı mıń altı júz jetpis bir
+try:
+    print(kaa_num.to_word(533_525))         # bes júz otız úsh mıń bes júz jigirma bes
+    print(kaa_num.to_word(894_236_671))     # segiz júz toqsan tórt million eki júz otız altı mıń altı júz jetpis bir
+except NumberRangeError as e:
+    print("San shegaradan asıp ketti!")
 ```
 <br>
 
@@ -33,8 +36,4 @@ print(kaa_num.to_word(894_236_671))     # segiz júz toqsan tórt million eki j�
     </i>
 </p>
 
-<b>Contribute to the project!</b>
-+ _Latin to Cyrillic & Cyrillic to Latin_
-+ _Words to Number_
-
-[View on GitHub](https://github.com/turdibekjumabaev/kaalin)
+[Contribute to the project](https://github.com/turdibekjumabaev/kaalin)
