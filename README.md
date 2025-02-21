@@ -35,5 +35,3 @@ except NumberRangeError as e:
         Kaalin is an open-source project, welcoming contributions and suggestions from anyone interested. Whether you're a seasoned developer or a newcomer, your input can help improve and expand the project's capabilities. Feel free to join the community, contribute code, suggest enhancements, or provide feedback to make Kaalin even better. Together, we can make a difference in empowering users with powerful tools and resources.
     </i>
 </p>
-
-[Contribute to the project](https://github.com/turdibekjumabaev/kaalin)
